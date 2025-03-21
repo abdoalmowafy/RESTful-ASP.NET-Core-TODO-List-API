@@ -32,9 +32,9 @@ namespace TodoListAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<TodoItem>> AddTodoItem([FromBody] string title)
+        public async Task<ActionResult<TodoItem>> AddTodoItem([FromBody] string title, [FromBody] string category)
         {
-            var todoItem = new TodoItem { Title = title, UserName = User.Identity!.Name! };
+            var todoItem = new TodoItem { Title = title, Category = category, UserName = User.Identity!.Name! };
             await _context.TodoList.AddAsync(todoItem);
             await _context.SaveChangesAsync();
 

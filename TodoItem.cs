@@ -8,6 +8,7 @@ namespace TodoListAPI
     {
         [Key] public int Id { get; set; }
         [Required] public required string Title { get; set; }
+        public string? Category { get; set; }
         [Required] public Status Status { get; set; } = Status.pending;
         [Required] public required string UserName { get; set; }
     }
