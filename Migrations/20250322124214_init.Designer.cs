@@ -12,8 +12,8 @@ using TodoListAPI.Data;
 namespace TODOListAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250321193440_initial migration")]
-    partial class initialmigration
+    [Migration("20250322124214_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -228,6 +228,9 @@ namespace TODOListAPI.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Category")
+                        .HasColumnType("text");
 
                     b.Property<string>("Status")
                         .IsRequired()
